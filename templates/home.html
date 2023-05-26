@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{%block title%} home {%endblock%}
+
+{% block content %}
+<h1>Hi {{name}} You are in the home page</h1>
+{%if display%}
+<h2>This is going to be displayed</h2>
+{%else%}
+<h2>This is not going to be displayed</h2>
+{%endif%}
+
+<h2>This is from database!!</h2>
+{% for item in result %}
+<h3>ID : {{item.id}} Nama : {{item.name}} , Satker : {{item.satker}}, Bidang : {{item.bidang}}</h3>
+{% endfor %}
+
+{%for x in listoflist%}
+<h3>{{x}}</h3>
+{%endfor%}
+
+{%for x in listofdicts%}
+<h3>{{x.name}}</h3>
+{%endfor%}
+
+<img src="{{url_for('static' , filename='image.jpg')}}" alt="">
+
+{% include 'including.html' %}
+
+{% endblock %}
